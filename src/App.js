@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import InsertMatch from './components/InsertMatch.jsx';
 import Login from './components/Login.jsx';
+import Logout from './components/Logout.jsx';
 import ChampionshipTable from './components/ChampionshipTable.jsx';
 import Page404 from './components/Page404.jsx';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -23,7 +24,8 @@ class App extends React.Component {
             <Route path="/insert" component={InsertMatch}/>
             <Route path="/championship" component={ChampionshipTable}/>
             <Route path="/login" component={Login}/>
-            <Route path='*' component={Page404}/>
+            <Route path="/logout" component={Logout}/>
+            {/* <Route path='/*' component={Page404}/> */}
           </Switch>
         </>
         </Router>
