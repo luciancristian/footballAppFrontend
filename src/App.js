@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import InsertMatch from './components/InsertMatch.jsx';
+import Login from './components/Login.jsx';
+import ChampionshipTable from './components/ChampionshipTable.jsx';
+import Page404 from './components/Page404.jsx';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+class App extends React.Component {
+  constructor () {
+    super();
+    this.state = {}
+  }
+
+  render () {
+    return (
+    <div className="app">
+      <Router>
+        <>
+          <Switch>
+            <Route path="/" exact component={Login}/>
+            <Route path="/insert" component={InsertMatch}/>
+            <Route path="/championship" component={ChampionshipTable}/>
+            <Route path="/login" component={Login}/>
+            <Route path='*' component={Page404}/>
+          </Switch>
+        </>
+        </Router>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
