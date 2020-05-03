@@ -6,7 +6,9 @@ import Logout from './components/Logout.jsx';
 import ChampionshipTable from './components/ChampionshipTable.jsx';
 import Page404 from './components/Page404.jsx';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import Navbar from './components/layout/Navbar.jsx';
+import Dashboard from './components/dashboard/Dashboard.jsx';
+import Test from './components/dashboard/Test.jsx';
 
 class App extends React.Component {
   constructor () {
@@ -16,20 +18,24 @@ class App extends React.Component {
 
   render () {
     return (
-    <div className="app">
-      <Router>
-        <>
-          <Switch>
-            <Route path="/" exact component={Login}/>
-            <Route path="/insert" component={InsertMatch}/>
-            <Route path="/championship" component={ChampionshipTable}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/logout" component={Logout}/>
-            {/* <Route path='/*' component={Page404}/> */}
-          </Switch>
-        </>
-        </Router>
-    </div>
+    <Router>
+      <div className="app">
+
+        <Navbar/> 
+        <Dashboard/>
+          <>
+            <Switch>
+              <Route path="/" exact component={Login}/>
+              <Route path="/insert" component={InsertMatch}/>
+              <Route path="/championship" component={ChampionshipTable}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/logout" component={Logout}/>
+              <Route path='/*' component={Page404}/>
+            </Switch>
+          </>
+          <Test/>
+        </div>
+    </Router> 
     );
   }
 }
