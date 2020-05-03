@@ -1,0 +1,17 @@
+
+td, tr {
+    height: 4px !important;
+    /* text-align: left; */
+}
+
+
+table, th, td {
+    border: 1px solid green;
+}
+
+
+.customClass {
+    height: 4px;
+}
+
+
