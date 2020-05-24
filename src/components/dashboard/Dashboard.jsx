@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Table from './Table.jsx';
+import Navbar from '../layout/Navbar.jsx';
 
 class Dashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+            user:'',
             users: []
         };
     }
@@ -21,6 +23,8 @@ class Dashboard extends Component {
 
     render() {
         return (
+            <div>
+            <Navbar/> 
             <div className="dashboard-container">
                 <div className="row">
                     <div>
@@ -28,6 +32,9 @@ class Dashboard extends Component {
                     </div>
                 </div>
             </div>
+            </div>
+         
+
         );
     }
 }

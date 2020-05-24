@@ -14,17 +14,13 @@ class Register extends React.Component {
         };
     }
 
-    updateUsername(event) {
-        this.setState({username: event.target.value});
-    }
-    updateEmail(event) {
-        this.setState({email: event.target.value});
-    }
-    updatePassword(event) {
-        this.setState({password: event.target.value});
-    }
-    updateOTP(event) {
-        this.setState({otp: event.target.value});
+    handleChange(event) {
+        this.setState(
+            {
+                [event.target.name]
+                  :event.target.value
+            }
+        )
     }
 
     render () {
@@ -41,13 +37,13 @@ class Register extends React.Component {
 
                 <div className="login">
                     <label htmlFor="username">Username:</label>
-                    <input type="text" name="username" placeholder="Enter Username" onChange={(event) => this.updateUsername(event)}/>
+                    <input type="text" name="username" placeholder="Enter Username" onChange={(event) => this.handleChange(event)}/>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" placeholder="Enter Email" onChange={(event) => this.updateEmail(event)}/>
+                    <input type="email" name="email" placeholder="Enter Email" onChange={(event) => this.handleChange(event)}/>
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" placeholder="Enter Password" onChange={(event) => this.updatePassword(event)}/>
+                    <input type="password" name="password" placeholder="Enter Password" onChange={(event) => this.handleChange(event)}/>
                     <label htmlFor="otp">OTP:</label>
-                    <input type="text" name="otp" placeholder="Enter Provided OTP" onChange={(event) => this.updateOTP(event)}/>
+                    <input type="text" name="otp" placeholder="Enter Provided OTP" onChange={(event) => this.handleChange(event)}/>
                     <button type="submit">Register</button>
                 </div>
             </form>

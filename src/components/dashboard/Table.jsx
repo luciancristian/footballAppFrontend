@@ -20,7 +20,7 @@ class Table extends React.Component {
     return (
       <div className="container">
        <div className="col s12 center">
-         <span class="table-title centered"><h5>Championship Table</h5></span>
+         <span className="table-title centered"><h5>Championship Table</h5></span>
        </div>
     
         <table className="dashboard-container">

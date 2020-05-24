@@ -9,24 +9,28 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar.jsx';
 import Home from './components/Home.jsx';
 import Register from './components/Register.jsx';
+import Dashboard from './components/dashboard/Dashboard.jsx';
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      user: []
+      username: '',
+      email: '',
+      password:''
     }
   }
+
+  
 
   render () {
     return (
     <Router>
       <div className="app">
-
-        <Navbar/> 
-          <>
+     
             <Switch>
               <Route path="/" exact component={Login}/>
+              <Route path='/home/:username' component={Dashboard}/>
               <Route path="/insert" component={InsertMatch}/>
               <Route path="/championship" component={ChampionshipTable}/>
               <Route path="/login" component={Login}/>
@@ -34,7 +38,6 @@ class App extends React.Component {
               <Route path="/register" component={Register}/>
               <Route path='/*' component={Page404}/>
             </Switch>
-          </>
         </div>
     </Router> 
     );
