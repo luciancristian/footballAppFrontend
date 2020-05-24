@@ -12,34 +12,27 @@ class Table extends React.Component {
         <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.email}</td>
+            <td>{user.id}</td>
         </tr>
       )
     }
   
     return (
       <div className="container">
-       <span class="table-title centered">Championship Table</span>
+       <div className="col s12 center">
+         <span class="table-title centered"><h5>Championship Table</h5></span>
+       </div>
+    
         <table className="dashboard-container">
         <thead>
           <tr>
               <th>Name</th>
-              <th>Item Name</th>
+              <th>Email</th>
+              <th>Points</th>
           </tr>
         </thead>
         <tbody className="container-fluid">
           {users.map(renderUsers)}
-      {/* //     <tr>
-      //       <td>Alviasdasdadadadadadadadan</td>
-      //       <td>Eclaasdadadadadasdadadbaaaaaaaaaaaaaaaddddddddddddddddddddddddd</td>
-      //     </tr>
-      //     <tr>
-      //       <td>Alan</td>
-      //       <td>Jellybean</td>
-      //     </tr>
-      //     <tr>
-      //       <td>Jonathan</td>
-      //       <td>Lollipop</td>
-      //     </tr> */}
          </tbody>
        </table>
       </div>

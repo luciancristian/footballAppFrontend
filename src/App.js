@@ -7,13 +7,15 @@ import ChampionshipTable from './components/ChampionshipTable.jsx';
 import Page404 from './components/Page404.jsx';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar.jsx';
-import Dashboard from './components/dashboard/Dashboard.jsx';
-import Test from './components/dashboard/Test.jsx';
+import Home from './components/Home.jsx';
+import Register from './components/Register.jsx';
 
 class App extends React.Component {
   constructor () {
     super();
-    this.state = {}
+    this.state = {
+      user: []
+    }
   }
 
   render () {
@@ -22,18 +24,17 @@ class App extends React.Component {
       <div className="app">
 
         <Navbar/> 
-        <Dashboard/>
           <>
             <Switch>
-              <Route path="/" exact component={Login}/>
+              <Route path="/" exact component={Home}/>
               <Route path="/insert" component={InsertMatch}/>
               <Route path="/championship" component={ChampionshipTable}/>
               <Route path="/login" component={Login}/>
               <Route path="/logout" component={Logout}/>
+              <Route path="/register" component={Register}/>
               <Route path='/*' component={Page404}/>
             </Switch>
           </>
-          <Test/>
         </div>
     </Router> 
     );

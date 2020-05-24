@@ -8,7 +8,7 @@ function Navbar()  {
         <nav className="nav-wrapper grey darken-3">
             <div className="container-fluid">
                 <Link to='/' className="brand-logo center btn-large green">Football App</Link>
-                <SignIn/>
+                {/* <SignIn/> */}
                 <SignOut/>
             </div>
         </nav>

@@ -10,13 +10,7 @@ class Dashboard extends Component {
     }
 
 
-  // MOUNTING: Cand componenta se termina de montat(a rulat render() pentru prima oara) este apelata
-  // metoda componentDidMount.
   componentDidMount() {
-    console.log('App component finished mounting!');
-    // ATENTIE! De cele mai multe ori, vom primi datele despre userii nostri de la un API. Daca vrem doar
-    // sa afisam niste date primite in pagina, am vrea sa le cerem o singura data: cand montam pagina. Mai
-    // precis, cand terminam de montat pagina, vrem sa si aducem datele de la API(backend).
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(data => {
