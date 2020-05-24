@@ -1,91 +1,54 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-// function Login() {
+import React from 'react';
+import './LoginRegister.css';
+import loginLogo from '../img/giphyLogin.gif';
 
-//     return(
-//         <div className="Login">
-//             <div>Login</div>
-//         </div>
-//     );
-// }
+class Login extends React.Component {
 
-// export default Login;
-
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import Home from './Home.jsx';
-class Login extends Component {
-constructor(props){
-  super(props);
-  this.state={
-  username:'',
-  password:''
-  }
- }
-
- handleClick(event){
-    var apiBaseUrl = "http://localhost:3000/";
-    var self = this;
-    var payload={
-    "email":this.state.username,
-    "password":this.state.password
-    }
-    axios.post(apiBaseUrl+'login', payload)
-    .then(function (response) {
-    console.log(response);
-    if(response.data.code == 200){
-    console.log("Login successfull");
-    var uploadScreen=[];
-    uploadScreen.push(<Home appContext={self.props.appContext}/>)
-    self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
-    }
-    else if(response.data.code == 204){
-    console.log("Username password do not match");
-    alert("username password do not match")
-    }
-    else{
-    console.log("Username does not exists");
-    alert("Username does not exist");
-    }
-    })
-    .catch(function (error) {
-    console.log(error);
-    });
+    constructor (props) {
+        super(props);
+        this.state = {
+            username: '',
+            email: '',
+            password: ''
+        };
     }
 
+    updateUsername(event) {
+        this.setState({username: event.target.value});
+    }
+    updateEmail(event) {
+        this.setState({email: event.target.value});
+    }
+    updatePassword(event) {
+        this.setState({password: event.target.value});
+    }
 
-render() {
-    return (
-      <div>
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Login"
-           />
-           <TextField
-             hintText="Enter your Username"
-             floatingLabelText="Username"
-             onChange = {(event,newValue) => this.setState({username:newValue})}
-             />
-           <br/>
-             <TextField
-               type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
-               />
-             <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-         </div>
-         </MuiThemeProvider>
-      </div>
-    );
-  }
+    render () {
+        const {username, email, password} = this.state;
+        const {submitLoginForm} = this.props;
+
+        return (
+       
+            <form className="user-login-form" onSubmit={(event) => submitLoginForm(event, username, email, password)}>
+                
+                <div className="imgcontainer">
+                    <img src={loginLogo} alt="Avatar" className="avatarLogin"/>
+                </div>
+
+                <div className="login">
+                    <label htmlFor="username">Username:</label>
+                    <input type="text" name="username" placeholder="Enter Username" onChange={(event) => this.updateUsername(event)}/>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email" placeholder="Enter Email" onChange={(event) => this.updateEmail(event)}/>
+                    <label htmlFor="password">Password:</label>
+                    <input type="password" name="password" placeholder="Enter Password" onChange={(event) => this.updatePassword(event)}/>
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+
+        )
+    }
 }
-const style = {
- margin: 15,
-};
+
 export default Login;

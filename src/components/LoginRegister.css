@@ -7,9 +7,13 @@
     justify-content: center;
 }
 
-img.avatar {
+img.avatarLogin {
     width: 50%;
     border-radius: 50%;
+    text-align: center;
+  }
+
+img.avatarRegister {
     text-align: center;
   }
 
